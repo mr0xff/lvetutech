@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-ao">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container{
+            display: flex;
+        }
+        .card{
+            transition: .5s;
+            display: flex;
+            background-color: rgb(199, 199, 199);
+            width: 10em;
+            height: 10em auto;
+            max-height: 20em;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: .5em;
+            padding: 2em;
+            margin: 1em;
+        }
+        .card:hover, .row:hover{
+            transition: .5s;
+            box-shadow: 1px 5px 10px #000;
+        }
+        .img{
+            width: 5em;
+            height: 5em;
+        }
+        button{
+            transition: .5s;
+            border: none;
+            padding: 1em;
+            background-color: rgb(0, 87, 128);
+            color: #fff;
+            font-weight: 800;
+            font-size: 16px;
+            border-radius: .5em;
+            width: 10em;
+            margin-bottom: 1em;
+        }
+        button:hover{
+            transition: .5s;
+            background-color: rgb(0, 124, 173);
+            cursor: pointer;
+        }
+        .title{
+            font: 34px Arial;
+            font-weight: bold;
+            padding: 1em;
+            border: 1px solid #000;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            width: 25em;
+        }
+        .text{
+            text-align: center;
+        }
+        .animation{
+            transition: .5s;
+            transform: rotate(10deg);
+        }
+        .lib-img{
+            width: 100%;
+        }
+        .iframe {
+            transition: .5s;
+            display: flex;
+            width: 50em;
+            height: 50em;
+            margin-top: 1em;
+            border-radius: 1em;
+        }
+        .hidden{
+            transition: .5s;
+            display: none;
+        }
+        .price {
+            color: rgb(0, 0, 0);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .row{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+            background-color: rgb(77, 120, 190);
+            border-radius: 1em;
+            margin-top: .5em;
+            width: 40em;
+        }
+        
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <header class="title">Sistemas operativos disponíveis</header>
+    <div class="container">
+        <div class="card">
+            <img src="images/windows-10.png" alt="windows-10" class="img">
+            <p class="text">Windows 10 x64</p>
+            <button>Comprar</button>
+        </div>
+
+        <div class="card">
+            <img src="images/ubuntu.png" alt="windows-10" class="img">
+            <p class="text">Ubunut Linux x64</p>
+            <span class="price">2 000,00 AKZ</span>
+            <button>Comprar</button>
+        </div>
+
+        <div class="card">
+            <img src="images/mint.png" alt="windows-10" class="img">
+            <p class="text" id="py1">Linux Mint x64</p>
+            <button>Comprar</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <header class="title">Cursos disponíveis</header>
+    <div class="container">
+        <div class="card" id="py">
+            <img src="images/python.png" alt="windows-10" class="img" >
+            <p class="text">Programação Python</p>
+            <button>Começar</button>
+        </div>
+
+        <div class="card">
+            <img src="images/gnu-linux.png" alt="windows-10" class="img">
+            <p class="text">GNU/Linux 1.0</p>
+            <button>Começar</button>
+        </div>
+
+        <div class="card">
+            <img src="images/c.png" alt="windows-10" class="img">
+            <p class="text">Programação C</p>
+            <button>Começar</button>
+        </div>
+        <div class="card">
+            <img src="images/bash.png" alt="windows-10" class="img">
+            <p class="text">Programação BashScript</p>
+            <button>Começar</button>
+        </div>
+    </div>
+
+    <hr>
+    <header class="title">Livros disponíveis</header>
+    <div class="container">
+        <div class="card" id="lib">
+            <img src="images/py.png" alt="windows-10" class="lib-img" >
+            <p class="text">Python GUI</p>
+            <button onclick="Show()">Ler</button>
+        </div>
+        <div class="pdf-view hidden" id="pdf">
+            <iframe download="false" id="iframe" frameborder="1" class="iframe"></iframe>
+        </div>
+    </div>
+    <hr>
+
+    <header class="title">Cards alinhados</header>
+    <div class="row">
+        <img src="images/ubuntu.png" alt="ubunut linux" class="img">
+        <p class="text">Ubunut Linux</p>
+        <p class="text">2 500, 00 AKZ</p>
+        <button>Comprar</button>
+    </div>
+
+    <div class="row">
+        <img src="images/ubuntu.png" alt="ubunut linux" class="img">
+        <p class="text">Ubunut Linux</p>
+        <p class="text">2 500, 00 AKZ</p>
+        <button>Comprar</button>
+    </div>
+    
+    <div class="row">
+        <img src="images/ubuntu.png" alt="ubunut linux" class="img">
+        <p class="text">Ubunut Linux</p>
+        <p class="text">2 500, 00 AKZ</p>
+        <button>Comprar</button>
+    </div>
+</body>
+
+<script>
+    const res1 = document.getElementById ('py1')
+    const res = document.getElementById ('py')
+    const iframe = document.getElementById ('pdf')
+    const iframeView = document.getElementById ('iframe')
+    
+    const Show = ()=> {
+        iframe.classList.toggle ('hidden')
+        iframeView.setAttribute ('src', 'lib/python.pdf')
+    }
+    const Animation = () => {
+        res.classList.toggle ('animation')
+        res1.classList.toggle ('animation')
+    }
+    setInterval (()=> Animation (), 2000)
+
+</script>
+</html>
