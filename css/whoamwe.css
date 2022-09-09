@@ -1,0 +1,17 @@
+.banner-title h2 {
+    background-color: #0099da79;
+    width: 100%;
+    color: #ffffff;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    font-weight: bolder;
+}
+
+.banner-title strong {
+    color: #066d99;
+}
+
+.text-description-who {
+    display: flex;
+    flex-direction: column;
+}
